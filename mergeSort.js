@@ -33,10 +33,6 @@ function mergeSort(arr) {
   let arr1 = arr.slice(0, mid);
   let arr2 = arr.slice(mid);
 
-  if (arr1.length <= 1 && arr2.length <= 1) {
-    return merge(arr1, arr2);
-  }
-
   return merge(mergeSort(arr1), mergeSort(arr2));
 }
 
