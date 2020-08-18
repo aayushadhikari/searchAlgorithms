@@ -15,4 +15,21 @@ function mostDigits(nums) {
   return max;
 }
 
+function radixSort(nums) {
+  let times = mostDigits(nums);
+
+  for (let i = 0; i < times; i++) {
+    let digitBuckets = Array.from({ length: 10 }, () => []);
+
+    for (let j = 0; j < nums.length; j++) {
+      let index = getDigit(nums[j], i);
+      digitBuckets[index].push(nums[j]);
+    }
+
+    nums = [].concat(...digitBuckets);
+  }
+  return nums;
+}
+
 console.log(mostDigits([1, 2, 34, 567, 1235]));
+console.log(radixSort([1, 5, 2, 3, 100, 0, 90, 54, 4]));
